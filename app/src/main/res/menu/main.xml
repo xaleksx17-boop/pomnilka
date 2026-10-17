@@ -3,4 +3,5 @@
     <item android:id="@+id/m_agenda" android:title="Что сегодня?" app:showAsAction="never"/>
     <item android:id="@+id/m_add" android:title="Добавить вручную" app:showAsAction="never"/>
     <item android:id="@+id/m_settings" android:title="Настройки" app:showAsAction="never"/>
+    <item android:id="@+id/m_help" android:title="Справка и о приложении" app:showAsAction="never"/>
 </menu>

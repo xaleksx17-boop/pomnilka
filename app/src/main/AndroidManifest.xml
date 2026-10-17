@@ -44,6 +44,7 @@
         </activity>
 
         <activity android:name=".TaskEditActivity" android:exported="false" android:parentActivityName=".MainActivity" />
+        <activity android:name=".HelpActivity" android:exported="false" android:parentActivityName=".MainActivity" />
         <activity android:name=".SettingsActivity" android:exported="false" android:parentActivityName=".MainActivity" />
 
         <receiver android:name=".AlarmReceiver" android:exported="true">

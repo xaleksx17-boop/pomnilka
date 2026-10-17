@@ -107,6 +107,13 @@ class MainActivity : AppCompatActivity() {
 
         Reminders.rescheduleAll(this)
         if (savedInstanceState == null) handleIntent(intent)
+
+        // при первом запуске — справка
+        val sp = getSharedPreferences("settings", MODE_PRIVATE)
+        if (savedInstanceState == null && !sp.getBoolean("help_shown", false)) {
+            sp.edit().putBoolean("help_shown", true).apply()
+            startActivity(Intent(this, HelpActivity::class.java))
+        }
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -142,6 +149,7 @@ class MainActivity : AppCompatActivity() {
             R.id.m_agenda -> answer(Answers.agenda(Db.get(this).allTasks()))
             R.id.m_add -> openEditor(0)
             R.id.m_settings -> startActivity(Intent(this, SettingsActivity::class.java))
+            R.id.m_help -> startActivity(Intent(this, HelpActivity::class.java))
             else -> return super.onOptionsItemSelected(item)
         }
         return true
