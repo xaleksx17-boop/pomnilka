@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:shortcutId="listen" android:enabled="true" android:icon="@drawable/ic_mic"
+        android:shortcutShortLabel="@string/shortcut_listen">
+        <intent android:action="ru.kuznetsov.pomnilka.LISTEN"
+            android:targetPackage="ru.kuznetsov.pomnilka"
+            android:targetClass="ru.kuznetsov.pomnilka.MainActivity"/>
+    </shortcut>
+    <shortcut android:shortcutId="photo" android:enabled="true" android:icon="@drawable/ic_camera"
+        android:shortcutShortLabel="@string/shortcut_photo">
+        <intent android:action="ru.kuznetsov.pomnilka.PHOTO"
+            android:targetPackage="ru.kuznetsov.pomnilka"
+            android:targetClass="ru.kuznetsov.pomnilka.MainActivity"/>
+    </shortcut>
+</shortcuts>

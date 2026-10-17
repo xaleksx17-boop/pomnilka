@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView style="@style/SettingsHeader" android:text="Распознавание речи" />
+
+        <RadioGroup
+            android:id="@+id/rgEngine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/rbAuto" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Авто: офлайн, если модель скачана, иначе Google" />
+            <RadioButton android:id="@+id/rbGoogle" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Google (нужен интернет)" />
+            <RadioButton android:id="@+id/rbVosk" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Vosk офлайн" />
+        </RadioGroup>
+
+        <TextView android:id="@+id/tvVosk" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:textAppearance="?attr/textAppearanceBodyMedium" />
+        <ProgressBar android:id="@+id/pbVosk" style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:max="100" android:visibility="gone" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/btnVoskDl" style="?attr/materialButtonOutlinedStyle" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="Скачать (~45 МБ)" />
+            <Button android:id="@+id/btnVoskFile" style="?attr/borderlessButtonStyle" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Из zip" />
+            <Button android:id="@+id/btnVoskDel" style="?attr/borderlessButtonStyle" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Удалить" />
+        </LinearLayout>
+
+        <TextView style="@style/SettingsHeader" android:text="Распознавание по фото" />
+        <TextView android:id="@+id/tvEmb" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
+        <ProgressBar android:id="@+id/pbEmb" style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:max="100" android:visibility="gone" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/btnEmbDl" style="?attr/materialButtonOutlinedStyle" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1" android:text="Скачать (~4 МБ)" />
+            <Button android:id="@+id/btnEmbFile" style="?attr/borderlessButtonStyle" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Из файла" />
+            <Button android:id="@+id/btnEmbDel" style="?attr/borderlessButtonStyle" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Удалить" />
+        </LinearLayout>
+
+        <TextView style="@style/SettingsHeader" android:text="Напоминания" />
+        <Button android:id="@+id/btnTime" style="?attr/materialButtonOutlinedStyle" android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/swSpeak"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Отвечать голосом" />
+
+        <TextView style="@style/SettingsHeader" android:text="Календарь" />
+        <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/swCal"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Дублировать в календарь" />
+        <Spinner android:id="@+id/spCal" android:layout_width="match_parent" android:layout_height="48dp" />
+        <Button android:id="@+id/btnLocalCal" style="?attr/borderlessButtonStyle" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Создать календарь «Помнилка» на телефоне" />
+        <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/swCalDone"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Записывать выполненные (✓)" />
+        <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/swCalAlert"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Напоминание и от календаря тоже" />
+    </LinearLayout>
+</ScrollView>

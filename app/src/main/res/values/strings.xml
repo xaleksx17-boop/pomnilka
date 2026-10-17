@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Помнилка</string>
+    <string name="shortcut_listen">Сказать</string>
+    <string name="shortcut_photo">Узнать по фото</string>
+</resources>

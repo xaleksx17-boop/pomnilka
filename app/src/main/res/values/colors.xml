@@ -1,0 +1,6 @@
+<resources>
+    <color name="launcher_bg">#2E7D32</color>
+    <color name="green">#2E7D32</color>
+    <color name="overdue">#C62828</color>
+    <color name="today">#EF6C00</color>
+</resources>

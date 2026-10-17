@@ -1,0 +1,44 @@
+name: Сборка APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Тесты разбора фраз
+        run: ./gradlew testDebugUnitTest --stacktrace
+
+      - name: Сборка APK
+        run: ./gradlew assembleDebug --stacktrace
+
+      - name: Переименовать APK
+        run: cp app/build/outputs/apk/debug/app-debug.apk Pomnilka-${{ github.run_number }}.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Pomnilka-apk
+          path: Pomnilka-*.apk
+
+      - name: Опубликовать в Releases (прямая ссылка для телефона)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "build-${{ github.run_number }}" Pomnilka-${{ github.run_number }}.apk \
+            --title "Помнилка, сборка ${{ github.run_number }}" \
+            --notes "Автосборка из коммита ${{ github.sha }}" --latest
